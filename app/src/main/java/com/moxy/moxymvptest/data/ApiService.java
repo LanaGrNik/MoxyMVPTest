@@ -35,6 +35,7 @@ public class ApiService {
                 .map(dataResponse -> filterVisible(dataResponse));
     }
 
+    //конвертируем Data
     private DataResponse mapResponse(DataResponse dataResponse) {
         for (Data data : dataResponse.getData()) {
             ViewData viewData = data.getViewData();
@@ -58,6 +59,7 @@ public class ApiService {
         return dataResponse;
     }
 
+    //фильтруем видимые
     private HzData mapHz(Data data) {
         String str = gson.toJson(data.getData());
         HzData hzData = gson.fromJson(str, HzData.class);
