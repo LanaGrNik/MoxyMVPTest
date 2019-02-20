@@ -41,12 +41,8 @@ public class MainActivity extends MvpActivity implements MainView {
     public void onLoaded(DataResponse dataResponse) {
         layout.removeAllViews();
         progressBar.setVisibility(View.GONE);
-        Set<ViewData> enabledViews = new HashSet<>(dataResponse.getView());
         for (Data data : dataResponse.getData()) {
-            ViewData viewData = data.getViewData();
-            if (enabledViews.contains(viewData)) {
-                drawData(data);
-            }
+            drawData(data);
         }
     }
 

@@ -59,7 +59,6 @@ public class ApiService {
         return dataResponse;
     }
 
-    //фильтруем видимые
     private HzData mapHz(Data data) {
         String str = gson.toJson(data.getData());
         HzData hzData = gson.fromJson(str, HzData.class);
@@ -78,6 +77,7 @@ public class ApiService {
         return selectorData;
     }
 
+    //фильтруем видимые
     private DataResponse filterVisible(DataResponse dataResponse) {
         List<ViewData> viewDataList = dataResponse.getView();
         List<Data> dataList = new ArrayList<>();
